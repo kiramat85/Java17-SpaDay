@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th = "http://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
     <title>Spa Menu</title>
-    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <style>
+        body {
+            text-align: center; /* Centers all text in the body */
+        }
+    </style>
 </head>
 <body>
-<h1>My Super Fancy Spa</h1>
-<div id = "clientProfile">
-</div>
-<div id = "servicesMenu">
-</div>
+<h1>Welcome to My Super Fancy Spa, <span th:text="${name}">Guest</span>!</h1>
+
+<p>Your skin type: <span th:text="${skintype}">Normal</span></p>
+<p>Your chosen service: <span th:text="${manipedi}">Manicure</span></p>
+
+<h2>Recommended Facials for Your Skin Type:</h2>
+<ul style="list-style: none; padding: 0;">
+    <li th:each="facial : ${facials}" th:text="${facial}">Facial Name</li>
+</ul>
+
+<p>Thank you for choosing our spa!</p>
 </body>
 </html>
